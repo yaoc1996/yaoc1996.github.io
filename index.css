@@ -1,0 +1,77 @@
+body {
+  background: #222;
+}
+
+.axis * {
+  stroke: white;
+}
+
+h1 {
+  color: white;
+}
+
+text {
+  fill: white;
+  stroke-width: 0;
+}
+
+#canvas {
+	width: 100%;
+	height: auto;
+  margin: 8px;
+}
+
+#gui {
+	width: 550px;
+	height: 550px;
+	float: left;
+	display: inline-block;
+}
+
+#map {
+	width: 550px;
+	height: 550px;
+	float: left;
+	display: inline-block;
+}
+
+#month-filter,
+#complaint-filter {
+  margin: 0px 12px;
+}
+
+.filter-item:hover {
+  cursor: pointer;
+}
+
+.zipcode {
+  fill: transparent;
+  stroke: #333;
+  stroke-width: 1px;
+  stroke: black;
+}
+
+.no-display path {
+  display: none;
+}
+
+hr {
+  border-top: 1px solid white;
+}
+
+@media screen and (max-width: 640px) {
+  #map {
+    width: calc(100vw - 32px);
+    height: calc(100vw - 32px);
+  }
+
+  #gui {
+    width: calc(100vw - 32px);
+    height: calc(100vw - 32px);
+  }
+
+  #month-filter,
+  #complaint-filter {
+    margin: 12px 0px;
+  }
+}
