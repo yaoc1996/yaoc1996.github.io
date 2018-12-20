@@ -17,7 +17,8 @@ function initVis(error, zipcodes) {
       gui       = d3.select('#canvas').append('div').attr('id', 'gui');
 
   gui.append('svg').attr('id', 'complaint-filter');
-  gui.append('hr')
+  gui.append('br');
+  gui.append('br');
   gui.append('svg').attr('id', 'month-filter');
 
 
