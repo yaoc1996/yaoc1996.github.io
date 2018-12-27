@@ -24,8 +24,8 @@ function initVis(error, zipcodes) {
 
   let baseMap = renderBaseMap(),
       client  = new carto.Client({
-        apiKey: 'efa703fa7b21d16711a560f97008f5de2e6cda41',
-        username: 'yaoc1996',
+        apiKey: 'api_key?',
+        username: 'username?',
       });
 
   let locationSource = createCartoLayer(client, baseMap);
@@ -142,12 +142,21 @@ function createCartoLayer(client, baseMap) {
   `)
 
   let style = new carto.style.CartoCSS(`
-    #layer {
-      marker-width: 4;
-      marker-line-width: 0;
-      marker-fill: steelblue;
+    Map {
+      -torque-frame-count: 256;
+      -torque-animation-duration: 30;
+      -torque-time-attribute: "cartodb_id";
+      -torque-aggregation-function: "count(cartodb_id)";
+      -torque-resolution: 8;
+      -torque-data-aggregation: linear;
     }
-  `)
+    #layer {
+      image-filters: colorize-alpha(blue, cyan, #008000, yellow , orange, red);
+      marker-file: url('http://s3.amazonaws.com/com.cartodb.assets.static/alphamarker.png');
+      marker-fill-opacity: 0.4;
+      marker-width: 35;
+    }
+  `);
 
   let layer = new carto.layer.Layer(source, style);
   client.addLayer(layer);
